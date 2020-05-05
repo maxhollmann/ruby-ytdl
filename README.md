@@ -46,7 +46,7 @@ state = YoutubeDL.download('https://www.youtube.com/watch?v=MmIWve5bUpU', format
 
 ### Events
 
-One event is emitted by each line printed by `youtube-dl`.
+One event is emitted for each line printed by `youtube-dl`.
 
 The full list of events types is:
 
@@ -65,4 +65,4 @@ Options passed to `YoutubeDL.download` get transformed as follows:
 * `some_option: true` becomes `--some-option`
 * `some_option: false` becomes `--no-some-option`
 * `some_option: 'anything'` becomes `--some-option anything`
-* `some_option: nil'` can be used to remove a default option
+* `some_option: nil` can be used to remove a default option
