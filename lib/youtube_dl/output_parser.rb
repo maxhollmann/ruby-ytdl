@@ -90,7 +90,7 @@ module YoutubeDL
 
     def info_json_regex
       %r{
-        \[info\] \s Writing \s video \s description \s metadata \s as \s JSON \s to: \s
+        \[info\] \s Writing \s video .*? \s metadata \s as \s JSON \s to: \s
         (?<info_json>.*)
       }x
     end
