@@ -97,8 +97,12 @@ module YoutubeDL
 
     def error_regex
       %r{
-        ERROR: \s
-        (?<error>.*)
+        (
+          ERROR: \s
+          (?<error>.*)
+        ) | (?<error>
+          .*: \s not \s found
+        )
       }x
     end
 
