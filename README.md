@@ -1,6 +1,6 @@
 # ytdl
 
-A Ruby wrapper for youtube-dl with progress callbacks.
+A Ruby wrapper for youtube-dl/yt-dlp with progress callbacks.
 
 ## Installation
 
@@ -12,10 +12,12 @@ gem install ytdl
 gem 'ytdl'
 ```
 
-Make sure you have [youtube-dl](https://github.com/ytdl-org/youtube-dl) installed and available in your `PATH`. If you have `pip` installed:
+Make sure you have [youtube-dl](https://github.com/ytdl-org/youtube-dl) or [yt-dlp](https://github.com/yt-dlp/yt-dlp) installed and available in your `PATH`. If you have `pip` installed:
 
 ```shell
 pip install youtube-dl
+# or
+pip install yt-dlp
 ```
 
 ## Usage
@@ -40,6 +42,12 @@ state = YoutubeDL.download('https://www.youtube.com/watch?v=MmIWve5bUpU', format
     puts "Complete: #{state.destination}"
   end
   .call
+```
+
+Configurable with:
+```ruby
+YoutubeDL::Command.config.executable = 'yt-dlp' # if you're using yt-dlp
+YoutubeDL::Command.config.default_options = { some_option: true }
 ```
 
 `YoutubeDL.download` returns the state after `youtube-dl` has exited. If the download was successful, `state.info_json` is loaded into `state.info` and the `info_json` file deleted.

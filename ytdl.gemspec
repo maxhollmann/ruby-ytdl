@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 2.3.0"
 
-  s.add_runtime_dependency("dry-configurable", "~> 0.11.0")
+  s.add_runtime_dependency("dry-configurable", "~> 1.0")
   s.add_runtime_dependency("filesize", "~> 0.2.0")
 end

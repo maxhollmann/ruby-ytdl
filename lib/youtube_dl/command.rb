@@ -9,9 +9,9 @@ module YoutubeDL
       self.class.config
     end
 
-    setting :executable, 'youtube-dl'
-    setting :default_options, {}
-    setting :forced_options, {
+    setting :executable, default: 'youtube-dl'
+    setting :default_options, default: {}
+    setting :forced_options, default: {
       newline: true,
       color: false,
       write_info_json: true,
