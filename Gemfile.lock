@@ -1,24 +1,22 @@
 PATH
   remote: .
   specs:
-    ytdl (0.1.0)
-      dry-configurable (~> 0.11.0)
+    ytdl (0.2.0)
+      dry-configurable (~> 1.0)
       filesize (~> 0.2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    concurrent-ruby (1.1.10)
-    dry-configurable (0.11.6)
-      concurrent-ruby (~> 1.0)
-      dry-core (~> 0.4, >= 0.4.7)
-      dry-equalizer (~> 0.2)
-    dry-core (0.9.1)
+    concurrent-ruby (1.2.2)
+    dry-configurable (1.1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-core (1.0.1)
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
-    dry-equalizer (0.3.0)
     filesize (0.2.0)
-    zeitwerk (2.6.6)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
