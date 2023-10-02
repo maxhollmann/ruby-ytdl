@@ -9,7 +9,7 @@ module YoutubeDL
       self.class.config
     end
 
-    setting :executable, default: 'youtube-dl'
+    setting :executable, default: 'yt-dlp'
     setting :default_options, default: {}
     setting :forced_options, default: {
       newline: true,

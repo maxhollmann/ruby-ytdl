@@ -1,6 +1,6 @@
 # ytdl
 
-A Ruby wrapper for youtube-dl/yt-dlp with progress callbacks.
+A Ruby wrapper for yt-dlp/youtube-dl with progress callbacks.
 
 ## Installation
 
@@ -12,12 +12,12 @@ gem install ytdl
 gem 'ytdl'
 ```
 
-Make sure you have [youtube-dl](https://github.com/ytdl-org/youtube-dl) or [yt-dlp](https://github.com/yt-dlp/yt-dlp) installed and available in your `PATH`. If you have `pip` installed:
+Make sure you have [yt-dlp](https://github.com/yt-dlp/yt-dlp) or [youtube-dl](https://github.com/ytdl-org/youtube-dl) installed and available in your `PATH`. If you have `pip` installed:
 
 ```shell
-pip install youtube-dl
-# or
 pip install yt-dlp
+# or
+pip install youtube-dl
 ```
 
 ## Usage
@@ -44,17 +44,18 @@ state = YoutubeDL.download('https://www.youtube.com/watch?v=MmIWve5bUpU', format
   .call
 ```
 
-Configurable with:
+`YoutubeDL.download` returns the state after `yt-dlp` has exited. If the download was successful, `state.info_json` is loaded into `state.info` and the `info_json` file deleted.
+
+### Configuration
+
 ```ruby
-YoutubeDL::Command.config.executable = 'yt-dlp' # if you're using yt-dlp
+YoutubeDL::Command.config.executable = 'youtube-dl' # if you're using youtube-dl instead of yt-dlp
 YoutubeDL::Command.config.default_options = { some_option: true }
 ```
 
-`YoutubeDL.download` returns the state after `youtube-dl` has exited. If the download was successful, `state.info_json` is loaded into `state.info` and the `info_json` file deleted.
-
 ### Events
 
-One event is emitted for each line printed by `youtube-dl`.
+One event is emitted for each line printed by `yt-dlp`.
 
 The full list of events types is:
 
@@ -64,7 +65,7 @@ The full list of events types is:
 * `progress`: Download progress in percentage (stored in `state.progress`)
 * `error`: An error message (stored in `state.error` without the `ERROR: ` prefix)
 * `complete`: The download is complete (Info JSON is parsed into `state.info` and deleted, `state.destination` now exists)
-* `unclear_exit_state`: `youtube-dl` exited without error, but either `destination` or `info_json` does not exist
+* `unclear_exit_state`: `yt-dlp` exited without error, but either `destination` or `info_json` does not exist
 
 ### Options
 
