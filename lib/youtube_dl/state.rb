@@ -10,6 +10,8 @@ module YoutubeDL
       :error,
       :info_json,
       :info,
+      :merger,
+      :deleting,
     )
 
     def error?

@@ -20,6 +20,15 @@ module YoutubeDL
         return :destination
       end
 
+      if m[:merger]
+        state.destination = Pathname(m[:merger])
+        return :merger
+      end
+
+      if m[:deleting]
+        return :deleting
+      end
+
       if m[:info_json]
         state.info_json = Pathname(m[:info_json]) if m[:info_json]
         return :info_json
@@ -53,6 +62,8 @@ module YoutubeDL
         #{progress_regex} |
         #{destination_regex} |
         #{existing_destination_regex} |
+        #{merger_regex} |
+        #{deletion_regex} | 
         #{info_json_regex} |
         #{error_regex}
       }x
@@ -85,6 +96,20 @@ module YoutubeDL
         \[download\] \s
         (?<destination>.*?) \s
         has \s already \s been \s downloaded
+      }x
+    end
+
+    def merger_regex
+      %r{
+        \[Merger\] \s+ Merging \s+ formats \s+ into \s+
+        "(?<merger>[^"]+)"
+      }x
+    end
+
+    def deletion_regex
+      %r{
+        Deleting \s+ original \s+ file \s+
+        (?<deleting>.*)
       }x
     end
 
