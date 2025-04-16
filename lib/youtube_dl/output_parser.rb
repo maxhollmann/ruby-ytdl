@@ -1,4 +1,5 @@
 require 'filesize'
+require 'pathname'
 require 'youtube_dl/state'
 
 module YoutubeDL
