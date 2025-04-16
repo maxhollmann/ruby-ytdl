@@ -33,7 +33,15 @@ module YoutubeDL
         when [] then nil
         when true then "--#{option}"
         when false then "--no-#{option}"
-        else ["--#{option}", value]
+        else
+          # Handle array values by repeating the option.
+          #
+          # Example: { paths: ['temp:/tmp', '/complete'] }
+          # Becomes: ['--paths', 'temp:/tmp', '--paths', '/complete']
+          #
+          # Example: { paths: '/downloads' }
+          # Becomes: ['--paths', '/downloads]
+          [*value].flat_map { |v| ["--#{option}", v] }
         end
       end
     end

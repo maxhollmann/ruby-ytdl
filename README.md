@@ -74,4 +74,5 @@ Options passed to `YoutubeDL.download` get transformed as follows:
 * `some_option: true` becomes `--some-option`
 * `some_option: false` becomes `--no-some-option`
 * `some_option: 'anything'` becomes `--some-option anything`
+* `some_option: ['any', 'thing']` becomes `--some-option any --some-option thing`
 * `some_option: nil` can be used to remove a default option
